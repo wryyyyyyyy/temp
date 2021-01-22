@@ -1,0 +1,17 @@
+name: Main CI
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Builder
+        run: |
+          cd builder && docker build . -t builder:main
+          docker image ls builder:main
