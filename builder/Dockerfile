@@ -11,5 +11,5 @@ FROM bash:latest
 COPY --from=builder /build/pnscan ./
 #RUN mkdir bin && cd bin && ln -sf ../pnscan sh && ls -la && pwd
 #ENTRYPOINT ["/pnscan", "-h"]
-ENTRYPOINT ["/pnscan", ""]
+ENTRYPOINT ["/pnscan"]
 CMD ["-h"]
