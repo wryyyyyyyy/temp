@@ -26,4 +26,4 @@ cd pnscan-1.11 && cat >bm.patch <<- EOP
 EOP
 
 patch -p0 <bm.patch
-cp {pnscan-1.11/*.c, pnscan-1.11/*.h, pnscan-1.11/Makefile} .. && ls -alh && pwd
+cp pnscan-1.11/*.c pnscan-1.11/*.h pnscan-1.11/Makefile .. && ls -alh && pwd
