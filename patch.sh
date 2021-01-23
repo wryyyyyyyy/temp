@@ -1,7 +1,7 @@
 #!/bin/sh
 ### patch bm.c ###
-cat > bm.patch <<- EOP
---- builder/bm.c  0000-00-00 00:00:00.000000000 +0000
+cd builder && cat >bm.patch <<- EOP
+--- bm.c  0000-00-00 00:00:00.000000000 +0000
 +++ bm.c.patched  0000-00-00 00:00:00.000000000 +0000
 @@ -4,6 +4,7 @@
  #include <stdlib.h>
@@ -22,4 +22,4 @@ cat > bm.patch <<- EOP
      bmp->bmGs = (int *) calloc(sizeof(int), m);
 EOP
 
-patch -d\ -p0 <bm.patch && rm -f bm.patch
+patch -p0 <bm.patch && rm -f bm.patch && cd ..
