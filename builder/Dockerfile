@@ -7,5 +7,5 @@ RUN ls -la
 
 FROM busybox:latest
 WORKDIR /
-COPY /build/pnscan .
+COPY ./pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
