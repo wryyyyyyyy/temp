@@ -7,6 +7,8 @@ RUN ls -la && pwd
 RUN CC="gcc -static" make lnx
 RUN ls -la && pwd
 
-FROM busybox:latest
-COPY ./pnscan .
+FROM bash:latest
+RUN ls -la && pwd
+WORKDIR /
+COPY pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
