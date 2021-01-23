@@ -8,7 +8,5 @@ RUN CC="gcc -static" make lnx
 RUN ls -la && pwd
 
 FROM alpine:latest
-RUN ls -la && pwd
-RUN find ./ -type f -name pnscan
-COPY /home/runner/work/temp/temp/builder/pnscan ./
+COPY --from=builder /build/pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
