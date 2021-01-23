@@ -1,11 +1,11 @@
 FROM alpine:latest as builder
 WORKDIR /build
 RUN apk update && \
-    apk add gcc make libc-dev libnsl-dev
+    apk add --no-cache gcc make libc-dev libnsl-dev tini
 COPY . ./
 RUN CC="gcc -static" make lnx
 
 FROM scratch
 WORKDIR /
 COPY --from=builder /build/pnscan .
-CMD ["/pnscan -h"]
+ENTRYPOINT ["/sbin/tini", "--"]
