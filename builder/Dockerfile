@@ -9,5 +9,5 @@ RUN ls -la && pwd
 
 FROM busybox:latest
 WORKDIR /
-COPY --from=builder /pnscan-1.11/pnscan .
+COPY --from=builder /pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
