@@ -3,9 +3,8 @@ WORKDIR /build
 RUN apk update && \
     apk add gcc make libc-dev libnsl-dev
 COPY . ./
-RUN make clean
 RUN CC="gcc -static" make lnx -j3
 
-FROM scratch
+FROM scratch as nope
 COPY --from=builder /build/pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
