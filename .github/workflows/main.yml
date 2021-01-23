@@ -17,6 +17,6 @@ jobs:
           docker build --no-cache -f builder/Dockerfile -t pnscan:builder .
           docker image ls pnscan:builder
           sh check.sh
-          docker build --no-cache -f builder/Dockerfile-2 -t pnscan:latest .
-          docker image ls pnscan:latest
+#          docker build --no-cache -f builder/Dockerfile-2 -t pnscan:latest .
+#          docker image ls pnscan:latest
 #          docker run --rm -t pnscan:latest
