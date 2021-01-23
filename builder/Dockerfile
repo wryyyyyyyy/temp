@@ -1,6 +1,6 @@
 FROM alpine:latest as builder
-#WORKDIR /bilder
-RUN echo BEFORE COPY && pwd && ls -la /home/runner/work/temp/temp
+WORKDIR /bilder
+RUN echo BEFORE COPY && pwd && ls -la ..
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
 COPY . ./
