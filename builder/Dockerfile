@@ -1,5 +1,5 @@
 FROM alpine:latest as builder
-WORKDIR /B
+#WORKDIR /B
 #RUN echo BEFORE COPY && pwd && ls -la
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
