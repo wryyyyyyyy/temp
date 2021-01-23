@@ -3,7 +3,7 @@ name: Main CI
 on:
   push:
     branches:
-#    - main
+    - main
 
 jobs:
   build:
@@ -17,4 +17,4 @@ jobs:
           cd builder && docker build -f Dockerfile -t pnscan:latest .
           docker image ls pnscan:latest
           docker run --rm -t pnscan:latest
-#          sh check.sh
+
