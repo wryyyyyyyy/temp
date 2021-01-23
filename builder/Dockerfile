@@ -1,4 +1,5 @@
 FROM ubuntu:latest as builder
+WORKDIR /build
 RUN apt update && \
     apt -y install make libc-dev libnis-dev
 RUN ls -la && pwd
