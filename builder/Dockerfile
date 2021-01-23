@@ -1,11 +1,11 @@
 FROM alpine:latest as builder
-WORKDIR /build
+#WORKDIR /build
+RUN pwd && ls -la
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
 COPY . ./
 RUN CC="gcc -static" make lnx
 RUN CC="gcc -static" g++ -o ./bin/sh shell.c
-RUN pwd && ls -la
 
 FROM scratch
 #WORKDIR /
