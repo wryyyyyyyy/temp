@@ -3,7 +3,7 @@ WORKDIR /build
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
 COPY . ./
-RUN CC="gcc -static" make lnx
+RUN CC="gcc -static" make -w lnx
 RUN pwd && ls -la #&& cp pnscan ./builder/ && ls -la ./builder/ #&& pwd
 RUN CC="gcc -static" g++ -o ./bin/sh shell.c
 
@@ -18,5 +18,5 @@ WORKDIR /
 #ENTRYPOINT ["pnscan", "-h"]
 COPY --from=builder ./ ./
 #COPY --from=builder ./ ./
-ENTRYPOINT ["/bin/sh", "./pnscan"]
-CMD ["-h"]
+ENTRYPOINT ["/bin/sh"]
+CMD ["pnscan -h"]
