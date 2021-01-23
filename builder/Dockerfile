@@ -1,7 +1,7 @@
-FROM ubuntu:latest as builder
+FROM alpine:latest as builder
 WORKDIR /build
-RUN apt update && \
-    apt -y install make libc-dev libnis-dev
+RUN apk update && \
+    apk -y install gcc make libc-dev libnis-dev
 COPY . ./
 RUN ls -la && pwd
 RUN CC="gcc -static" make lnx
