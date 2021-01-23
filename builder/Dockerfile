@@ -1,7 +1,7 @@
-FROM ubuntu:latest as builder
+FROM ubuntu-20.04 as builder
 WORKDIR /build
 RUN apt update && apt -y upgrade && \
-    apt -y install libc-dev libnis-dev
+    apt -y install gcc make libc-dev libnis-dev
 COPY ./pnscan-1.11/*  ./
 RUN CC="gcc -static" make lnx
 
