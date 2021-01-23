@@ -20,4 +20,4 @@ COPY --from=builder ./ ./
 #COPY --from=builder ./ ./
 ENTRYPOINT ["/bin/sh", "-c"]
 #CMD ["/bin/pnscan -h"]
-CMD ["pwd && ls -la .."]
+CMD ["pwd && ls -la ../build"]
