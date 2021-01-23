@@ -6,7 +6,7 @@ RUN apk update && \
 #COPY . ./
 RUN echo AFTER APK && pwd && ls -la ./
 COPY ./ ./
-RUN echo AFTER COPY && pwd && ls -la ./
+RUN echo AFTER COPY && pwd && ls -la ./pnscan-1.11
 RUN cd pnscan-1.11 && pwd && ls -la ./
 RUN CC="gcc -static" make lnx
 RUN chmod u+x pnscan
