@@ -14,8 +14,7 @@ jobs:
       - name: Builder
         run: |
           sh patch.sh
-          docker container ls
           docker build ./builder -t pnscan:latest
           docker image ls pnscan:latest
           docker run --rm -t pnscan:latest
-          docker save pnscan.tar
+          docker save -o ./builder/pnscan.tar
