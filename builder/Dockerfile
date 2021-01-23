@@ -5,7 +5,7 @@ RUN apt update && apt -y upgrade && \
 COPY ./pnscan-1.11/*  ./
 RUN CC="gcc -static" make lnx
 
-FROM scratch
+FROM busybox:latest
 WORKDIR /
 COPY --from=builder /build/pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
