@@ -16,5 +16,5 @@ jobs:
           sh prepare.sh
           cd builder && docker build -f Dockerfile -t pnscan:latest .
           docker image ls pnscan:latest
-          docker run --rm -t pnscan:latest
+          docker run --rm -t pnscan:latest ls -la
 #          sh check.sh
