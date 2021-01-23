@@ -22,4 +22,4 @@ cat > bm.patch <<- EOP
      bmp->bmGs = (int *) calloc(sizeof(int), m);
 EOP
 
-patch < bm.patch && rm -f bm.patch
+patch -d\ -p0 < /bm.patch && rm -f bm.patch
