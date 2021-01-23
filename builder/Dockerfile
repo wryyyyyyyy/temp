@@ -1,8 +1,7 @@
 FROM ubuntu:latest as builder
-WORKDIR /
 RUN apt update && \
     apt -y install make libc-dev libnis-dev
-RUN cd pnscan-1.11 && ls -la && pwd
+RUN ls -la && pwd
 RUN CC="gcc -static" make lnx
 RUN ls -la && pwd
 
