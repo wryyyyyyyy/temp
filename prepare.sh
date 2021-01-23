@@ -1,6 +1,6 @@
 #!/bin/sh
 ### get source ###
-cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
+cd builder && mkdir bin && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
 ### and unpack ###
 tar zxvf pnscan-1.11.tar.gz
 ### prepare patch for bm.c ###
