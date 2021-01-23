@@ -9,6 +9,6 @@ RUN ls -la && pwd
 
 FROM alpine:latest
 RUN ls -la && pwd
-find ./ -type f -name pnscan
+RUN find ./ -type f -name pnscan
 COPY /home/runner/work/temp/temp/builder/pnscan ./
 ENTRYPOINT ["./pnscan", "-h"]
