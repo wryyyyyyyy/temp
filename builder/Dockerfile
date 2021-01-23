@@ -8,6 +8,6 @@ RUN ls -la && pwd
 
 FROM scratch
 #WORKDIR ./
-COPY --from=builder pnscan ./
+COPY --from=builder /build/pnscan ./
 RUN ls -la && pwd
 ENTRYPOINT ["/pnscan", "-h"]
