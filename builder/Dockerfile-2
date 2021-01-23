@@ -1,0 +1,4 @@
+FROM scratch
+WORKDIR /
+COPY --from=builder /build/builder/pnscan ./
+ENTRYPOINT ["/pnscan", "-h"]
