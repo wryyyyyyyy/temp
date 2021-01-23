@@ -15,5 +15,8 @@ jobs:
         run: |
           sh patch.sh
           docker build --no-cache ./builder -t pnscan:latest
-          docker image ls pnscan:latest
-          docker run --rm -t pnscan:latest
+          docker images | grep pnscan:latest | egrep -o '[^ ]+$'
+          mkdir backup && cd backup
+          docker save pnscan:latest |tar -x && ls -la
+#          docker image ls pnscan:latest
+#          docker run --rm -t pnscan:latest
