@@ -3,10 +3,8 @@ WORKDIR /build
 RUN apk update && \
     apk add gcc make libc-dev libnsl-dev
 COPY . ./
-RUN ls -la && pwd
-RUN CC="gcc -static" make lnx
-RUN ls -la && pwd
+RUN CC="musl-gcc -static" make lnx
 
-FROM alpine:latest
+FROM scratch
 COPY --from=builder /build/pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
