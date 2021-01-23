@@ -1,8 +1,9 @@
 #!/bin/sh
-### patch bm.c ###
+### get source ###
 cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
+### and unpack ###
 tar zxvf pnscan-1.11.tar.gz
-
+### prepare patch for bm.c ###
 cd pnscan-1.11 && cat >bm.patch <<- EOP
 --- bm.c  0000-00-00 00:00:00.000000000 +0000
 +++ bm.c.patched  0000-00-00 00:00:00.000000000 +0000
@@ -24,7 +25,9 @@ cd pnscan-1.11 && cat >bm.patch <<- EOP
      bmp->icase = icase;
      bmp->bmGs = (int *) calloc(sizeof(int), m);
 EOP
-
+### and apply ###
 patch -p0 <bm.patch
+### copy files to build dir ###
 cp *.c .. && cp *.h .. && cp Makefile ..
+### and check it###
 cd .. && ls -alh && pwd
