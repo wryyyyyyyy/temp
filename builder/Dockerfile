@@ -3,7 +3,7 @@ WORKDIR /build
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev tini
 COPY . ./
-RUN echo RUN IN: `pwd` && ls -alh && CC="gcc -static" make lnx
+RUN cd builder && echo RUN IN: `pwd` && ls -alh && CC="gcc -static" make lnx
 
 FROM scratch
 WORKDIR /
