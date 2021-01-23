@@ -1,4 +1,4 @@
-FROM ubuntu20.04 as builder
+FROM Ubuntu-20.04 as builder
 WORKDIR /build
 RUN apt update && \
     apt add libc-dev libnsl-dev
