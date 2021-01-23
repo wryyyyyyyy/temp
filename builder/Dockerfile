@@ -1,7 +1,7 @@
 FROM alpine:latest as builder
 WORKDIR /build
 RUN apk update && \
-    apk -y install gcc make libc-dev libnis-dev
+    apk add gcc make libc-dev libnis-dev
 COPY . ./
 RUN ls -la && pwd
 RUN CC="gcc -static" make lnx
