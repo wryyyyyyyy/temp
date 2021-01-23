@@ -2,7 +2,7 @@ FROM ubuntu:latest as builder
 WORKDIR /build
 RUN apt update && \
     apt add libc-dev libnsl-dev
-COPY ./pnscan-1.11  .
+COPY ./pnscan-1.11/*  .
 RUN CC="gcc -static" make lnx
 
 FROM scratch
