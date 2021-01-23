@@ -1,6 +1,6 @@
 FROM alpine:latest as builder
-#WORKDIR /B
-#RUN echo BEFORE COPY && pwd && ls -la
+WORKDIR /builder
+RUN echo BEFORE COPY && pwd && ls -la
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
 COPY . ./
@@ -10,7 +10,7 @@ RUN chmod u+x pnscan
 RUN CC="gcc -static" g++ -o sh shell.c && chmod u+x sh
 
 FROM scratch
-COPY --from=builder /B/pnscan /bin/
-COPY --from=builder /B/sh /bin/
+COPY --from=builder /builder/pnscan /bin/
+COPY --from=builder /builder/sh /bin/
 ENTRYPOINT ["/bin/sh", "-c"]
 CMD ["./pnscan -h"]
