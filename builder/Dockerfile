@@ -7,7 +7,7 @@ RUN ls -la && pwd
 RUN CC="gcc -static" make lnx
 RUN ls -la && pwd
 
-FROM bash:latest
+FROM alpine:latest
 RUN ls -la && pwd
 find ./ -type f -name pnscan
 COPY /home/runner/work/temp/temp/builder/pnscan ./
