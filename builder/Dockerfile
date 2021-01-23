@@ -17,4 +17,4 @@ COPY --from=builder /B/pnscan /bin/
 #RUN pwd && ls -la /
 ENTRYPOINT ["/bin/sh", "-c"]
 #CMD ["pwd && rm -f *.o && rm -f *.h rm -f *.c rm -f Makefile && ls -la"]
-CMD ["/bin/pnscan -h"]
+CMD ["pnscan -h"]
