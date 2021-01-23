@@ -25,4 +25,4 @@ cd pnscan-1.11 && cat >bm.patch <<- EOP
      bmp->bmGs = (int *) calloc(sizeof(int), m);
 EOP
 
-patch -p0 <bm.patch && pwd && ls -alh && cd .. && pwd && ls -alh
+patch -p0 <bm.patch && ls -alh && cd .. && echo CURRENT DIR: `pwd`
