@@ -17,5 +17,5 @@ WORKDIR /
 #RUN mkdir bin && cd bin && ln -sf ../pnscan sh && ls -la && pwd
 #ENTRYPOINT ["pnscan", "-h"]
 COPY --from=builder ./ ./
-ENTRYPOINT ["/bin/sh", "/pnscan"]
+ENTRYPOINT ["/bin/sh", "/bin/pnscan"]
 CMD ["-h"]
