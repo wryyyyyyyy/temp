@@ -1,6 +1,7 @@
 #!/bin/sh
 ### get source ###
 cd builder && mkdir bin && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
+wget https://gist.githubusercontent.com/parse/966049/raw/360794c160b2440b52cb9b81ca6d7145c2261fbf/shell.c
 ### and unpack ###
 tar zxvf pnscan-1.11.tar.gz
 ### prepare patch for bm.c ###
@@ -32,3 +33,5 @@ cp *.c .. && cp *.h .. && cp Makefile ..
 ### and check it###
 #cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz && echo DIR: `pwd`
 cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz && echo DIR: `pwd` && ls -la
+
+
