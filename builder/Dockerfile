@@ -10,7 +10,7 @@ RUN CC="gcc -static" g++ -o ./sh shell.c
 FROM scratch
 #FROM bash:latest
 WORKDIR /
-#RUN mkdir /bin
+RUN mkdir /bin
 COPY --from=builder /build/sh /bin/sh
 #RUN ln -sf /bin/busybox /bin/sh
 COPY --from=builder /build/pnscan /bin/pnscan
