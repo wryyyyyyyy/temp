@@ -1,1 +1,5 @@
 *.o
+*.h
+*.c
+ipsort
+pnscan
