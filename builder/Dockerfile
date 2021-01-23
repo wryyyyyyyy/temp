@@ -9,6 +9,7 @@ RUN CC="gcc -static" g++ -o ./bin/sh shell.c
 
 FROM scratch
 #WORKDIR /
-COPY --from=builder ./ ./
+#COPY --from=builder ./ ./
+RUN pwd && ls -la
 ENTRYPOINT ["/bin/sh", "-c"]
 CMD ["rm -f /build/*.o && rm -f /build/*.h rm -f /build/*.c rm -f /build/Makefile && ls -la build && mv build/pnscan bin/"]
