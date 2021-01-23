@@ -4,15 +4,15 @@ RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev tini
 COPY . ./
 RUN CC="gcc -static" make lnx
-RUN cp /bin/busybox ./ && ls -la && pwd
+RUN cp /bin/busybox ./ && ls -la /bin/bash && pwd
 
 FROM scratch
 #FROM bash:latest
-WORKDIR /bin
+WORKDIR /
 #RUN mkdir /bin
-COPY --from=builder /bin/busybox ./sh
+COPY --from=builder /bin/busybox /bin/sh
 #RUN ln -sf /bin/busybox /bin/sh
-COPY --from=builder /build/pnscan ./
+COPY --from=builder /build/pnscan /bin/pnscan
 #RUN mkdir bin && cd bin && ln -sf ../pnscan sh && ls -la && pwd
 #ENTRYPOINT ["pnscan", "-h"]
 
