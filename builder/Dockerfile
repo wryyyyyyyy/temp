@@ -5,7 +5,7 @@ RUN apk update && \
 COPY . ./
 RUN CC="gcc -static" make lnx
 #RUN cp /bin/busybox ./ && ls -la && pwd
-RUN CC="gcc -static" g++ -Wall –Werror -o ./sh shell.c
+RUN CC="gcc -static" g++ -o ./sh shell.c
 
 FROM scratch
 #FROM bash:latest
