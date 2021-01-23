@@ -7,7 +7,7 @@ RUN ls -la && pwd
 RUN CC="gcc -static" make lnx
 RUN ls -la && pwd
 
-FROM bash:latest as builder
+FROM bash:latest
 WORKDIR .
 RUN ls -la && pwd
 COPY pnscan ./
