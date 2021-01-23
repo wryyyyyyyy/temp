@@ -30,4 +30,4 @@ patch -p0 <bm.patch
 ### copy files to build dir ###
 cp *.c .. && cp *.h .. && cp Makefile ..
 ### and check it###
-cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz && ls -alh && pwd
+cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz && echo DIR: `pwd`
