@@ -8,5 +8,4 @@ RUN CC="gcc -static" make lnx
 FROM scratch
 WORKDIR /
 COPY --from=builder /build/pnscan .
-ENTRYPOINT ["/pnscan"]
-CMD ["-h"]
+ENTRYPOINT ["./pnscan", "-h"]
