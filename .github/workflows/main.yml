@@ -14,7 +14,7 @@ jobs:
       - name: Builder
         run: |
           sh patch.sh
-          docker build -t pnscan .
+          cd builder && docker build -t pnscan .
           docker image ls pnscan
 #          sh check.sh
 #          docker build --no-cache -f builder/Dockerfile-2 -t pnscan:latest .
