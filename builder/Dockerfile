@@ -4,7 +4,7 @@ RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev tini
 COPY . ./
 RUN CC="gcc -static" make lnx
-RUN ls -la && pwd
+RUN ls -la /bin/sh && pwd
 
 FROM bash:latest
 #WORKDIR ./

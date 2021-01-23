@@ -13,11 +13,7 @@ jobs:
 
       - name: Builder
         run: |
-          sh patch.sh
+          sh prepare.sh
           cd builder && docker build -t pnscan:latest .
           docker image ls pnscan:latest
-          docker run --rm -t pnscan:latest -v -n3 nmap.scanme.org 1:1024
-#          sh check.sh
-#          docker build --no-cache -f builder/Dockerfile-2 -t pnscan:latest .
-#          docker image ls pnscan:latest
-#
+          docker run --rm -t pnscan:latest nmap.scanme.org 10:30
