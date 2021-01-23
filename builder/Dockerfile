@@ -8,4 +8,5 @@ RUN cd builder && CC="gcc -static" make lnx
 FROM scratch
 WORKDIR /
 COPY --from=builder /build/builder/pnscan ./
+RUN ls -la
 ENTRYPOINT ["/pnscan", "-h"]
