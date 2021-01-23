@@ -1,9 +1,9 @@
-FROM alpine:latest as builder
+FROM ubuntu20.04 as builder
 WORKDIR /build
-RUN apk update && \
-    apk add gcc make libc-dev libnsl-dev
+RUN apt update && \
+    apt add libc-dev libnsl-dev
 COPY .  ./
-RUN make lnx
+RUN CC="gcc -static" make lnx
 
 FROM scratch
 WORKDIR /
