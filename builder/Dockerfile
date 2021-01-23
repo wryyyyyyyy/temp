@@ -8,4 +8,4 @@ RUN CC="gcc -static" make lnx
 FROM scratch
 WORKDIR /
 COPY --from=builder /build/pnscan .
-ENTRYPOINT ["/sbin/tini", "--"]
+ENTRYPOINT ["/pnscan", "-h"]
