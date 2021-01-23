@@ -28,4 +28,3 @@ EOP
 patch -p0 <bm.patch
 cp *.c .. && cp *.h .. && cp Makefile ..
 cd .. && ls -alh && pwd
-docker image prune -a -f
