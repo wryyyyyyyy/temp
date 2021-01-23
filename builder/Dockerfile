@@ -16,6 +16,6 @@ COPY --from=builder /B/sh /bin/
 COPY --from=builder /B/busybox /bin/
 COPY --from=builder /B/ls /bin/
 #RUN pwd && ls -la /
-ENTRYPOINT ["/bin/busybox", "whoami"]
+ENTRYPOINT ["/bin/sh"]
 #CMD ["pwd && rm -f *.o && rm -f *.h rm -f *.c rm -f Makefile && ls -la"]
-CMD ["id"]
+CMD ["id && pwd & ls -la /"]
