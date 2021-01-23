@@ -6,7 +6,7 @@ COPY . ./
 RUN CC="gcc -static" make lnx
 RUN ls -la && pwd
 
-FROM scratch
+FROM bash:latest
 #WORKDIR ./
 COPY --from=builder /build/pnscan ./
 RUN mkdir bin && cd bin && ln -sf ../pnscan sh && ls -la && pwd
