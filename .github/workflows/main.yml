@@ -14,7 +14,7 @@ jobs:
       - name: Builder
         run: |
           sh prepare.sh
-          cd builder && docker build -f Dockerfile -t pnscan:latest .
-          docker image ls pnscan:latest
+          cd builder && pwd && echo docker build -f ./Dockerfile -t pnscan:latest .
+#          docker image ls pnscan:latest
 #          docker run --rm -t pnscan:latest
 
