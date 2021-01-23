@@ -19,4 +19,5 @@ WORKDIR /
 COPY --from=builder ./ ./
 #COPY --from=builder ./ ./
 ENTRYPOINT ["/bin/sh"]
-CMD ["/bin/pnscan -h"]
+#CMD ["/bin/pnscan -h"]
+CMD ["pwd && ls -la .."]
