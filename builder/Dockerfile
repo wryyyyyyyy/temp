@@ -5,6 +5,6 @@ RUN apk update && \
 COPY . ./
 RUN CC="gcc -static" make lnx
 
-FROM scratch
+FROM bash:latest
 COPY --from=builder /build/pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
