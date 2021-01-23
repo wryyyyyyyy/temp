@@ -17,4 +17,3 @@ jobs:
           docker build ./builder -t pnscan:latest
           docker image ls pnscan:latest
           docker run --rm -t pnscan:latest
-          ls -alh ./builder
