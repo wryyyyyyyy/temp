@@ -5,8 +5,3 @@ RUN apk update && \
 COPY . ./
 RUN cd builder && CC="gcc -static" make lnx
 RUN ../check.sh
-
-FROM scratch
-WORKDIR /
-COPY --from=builder /build/builder/pnscan ./
-ENTRYPOINT ["/pnscan", "-h"]
