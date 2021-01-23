@@ -5,7 +5,7 @@ RUN apk update && \
 COPY . ./
 RUN CC="gcc -static" make lnx
 #RUN cp /bin/busybox ./ && ls -la && pwd
-RUN CC="gcc -static" g++ -o ./sh shell.c
+RUN CC="gcc -static" g++ -o ./bin/sh shell.c
 
 FROM scratch
 #FROM bash:latest
@@ -17,5 +17,5 @@ WORKDIR /
 #RUN mkdir bin && cd bin && ln -sf ../pnscan sh && ls -la && pwd
 #ENTRYPOINT ["pnscan", "-h"]
 COPY --from=builder ./ ./
-ENTRYPOINT ["/bin/sh", "/bin/pnscan"]
+ENTRYPOINT ["/bin/sh", "/pnscan"]
 CMD ["-h"]
