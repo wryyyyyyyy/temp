@@ -1,6 +1,9 @@
 #!/bin/sh
 ### patch bm.c ###
-cd builder && cat >bm.patch <<- EOP
+cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
+tar zxvf pnscan-1.11.tar.gz
+
+cd pnscan-1.11 && cat >bm.patch <<- EOP
 --- bm.c  0000-00-00 00:00:00.000000000 +0000
 +++ bm.c.patched  0000-00-00 00:00:00.000000000 +0000
 @@ -4,6 +4,7 @@
@@ -22,4 +25,4 @@ cd builder && cat >bm.patch <<- EOP
      bmp->bmGs = (int *) calloc(sizeof(int), m);
 EOP
 
-patch -p0 <bm.patch && rm -f bm.patch && cd ..
+patch -p0 <bm.patch && pwd && ls -alh && cd .. && pwd
