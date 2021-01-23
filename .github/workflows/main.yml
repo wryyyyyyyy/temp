@@ -14,8 +14,9 @@ jobs:
       - name: Builder
         run: |
           sh patch.sh
+          docker images ls
           docker build ./builder -t pnscan:latest
           ID=`docker images --format="{{.Repository}} {{.ID}}" |cut -d' ' -f2`
+          DIGEST=`docker inspect --format='{{index .RepoDigests 0}}' pnscan:latest`
           docker image ls pnscan:latest
-          docker run --rm -t $ID -n pnscan
-          docker image save -o pnscan.tar $ID
+          docker run --rm -t pnscan:latest --name pnscan
