@@ -7,7 +7,7 @@ RUN CC="gcc -static" make lnx
 RUN ls -la && pwd
 
 FROM scratch
-WORKDIR /build
+WORKDIR ./
 COPY --from=builder pnscan ./
 RUN ls -la && pwd
 #ENTRYPOINT ["/pnscan", "-h"]
