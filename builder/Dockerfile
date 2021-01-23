@@ -9,4 +9,4 @@ FROM scratch
 WORKDIR /
 COPY --from=builder /build/builder/pnscan .
 RUN echo COPY: ls -alh && pwd
-ENTRYPOINT ["/pnscan", "-h"]
+ENTRYPOINT ["/tini", "--", "/pnscan", "-h"]
