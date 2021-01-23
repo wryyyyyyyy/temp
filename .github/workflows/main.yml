@@ -16,5 +16,6 @@ jobs:
           sh patch.sh
           docker build ./builder -t pnscan:latest
           ID=`docker images --format="{{.Repository}} {{.ID}}" |cut -d' ' -f2`
-          docker image ls $ID
-          docker run --rm -t $ID
+          docker image ls pnscan:latest
+          docker run --rm -t $ID -n pnscan
+          docker image save -o pnscan.tar $ID
