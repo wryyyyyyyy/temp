@@ -10,4 +10,4 @@ FROM scratch
 #WORKDIR ./
 COPY --from=builder /build/pnscan ./
 RUN ls -la && pwd
-ENTRYPOINT ["/pnscan", "-h"]
+#ENTRYPOINT ["/pnscan", "-h"]
