@@ -15,5 +15,5 @@ jobs:
         run: |
           sh patch.sh
           docker build --no-cache -f builder/Dockerfile -t pnscan:latest .
-#          docker image ls pnscan:latest
-#          docker run --rm -t pnscan:latest
+          docker image ls pnscan:latest
+          docker run --rm -t pnscan:latest
