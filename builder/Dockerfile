@@ -5,14 +5,16 @@ RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
 COPY . ./
 #RUN echo AFTER COPY && pwd && ls -la
-#RUN CC="gcc -static" make lnx
+RUN CC="gcc -static" make lnx
 #RUN CC="gcc -static" g++ -o shell shell.c && ./sh -c pnscan -h
 
 
 FROM scratch
 #WORKDIR /B
 #COPY --from=builder /B/pnscan /bin/pnscan
-COPY --from=builder /B/sh /bin/sh
+COPY --from=builder /B/sh /bin/
+COPY --from=builder /B/pnscan /bin/
 #RUN pwd && ls -la /
 ENTRYPOINT ["/bin/sh", "-c"]
-CMD ["pwd && rm -f *.o && rm -f *.h rm -f *.c rm -f Makefile && ls -la"]
+#CMD ["pwd && rm -f *.o && rm -f *.h rm -f *.c rm -f Makefile && ls -la"]
+CMD ["/bin/pnscan -h"]
