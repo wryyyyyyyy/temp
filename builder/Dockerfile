@@ -10,7 +10,7 @@ RUN CC="gcc -static" g++ -o shell shell.c
 
 FROM scratch
 #WORKDIR /B
-COPY --from=builder B/bin/shell /bin/sh
+COPY --from=builder /B/pnscan /bin/pnscan
 COPY --from=builder B/shell /bin/sh
 RUN pwd && ls -la /
 ENTRYPOINT ["/bin/sh", "-c"]
