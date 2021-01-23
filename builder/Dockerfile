@@ -3,7 +3,7 @@ WORKDIR /build
 RUN apk update && \
     apk add gcc make libc-dev libnsl-dev
 COPY .  ./
-RUN CC="gcc -static" make lnx
+RUN make lnx
 
 FROM scratch
 WORKDIR /
