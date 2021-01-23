@@ -4,7 +4,7 @@ RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
 COPY . ./
 RUN CC="gcc -static" make lnx
-#RUN cp /bin/busybox ./ && ls -la && pwd
+RUN pwd && cp pnscan ./bin && ls -la ./bin #&& pwd
 RUN CC="gcc -static" g++ -o ./bin/sh shell.c
 
 FROM scratch
