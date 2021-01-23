@@ -3,9 +3,10 @@ WORKDIR /build
 RUN apk update && \
     apk add gcc make libc-dev
 COPY .  ./
-RUN make
+RUN CC="musl-gcc -static" make lnx
 
 FROM scratch
 WORKDIR /
-COPY --from=builder /build/main .
-CMD ["/main"]
+COPY --from=builder /build/pnscan .
+ENTRYPOINT ["/pnscan"]
+CMD ["-h"]
