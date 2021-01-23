@@ -8,7 +8,7 @@ RUN echo AFTER COPY && pwd && ls -la ..
 RUN CC="gcc -static" make lnx
 RUN chmod u+x pnscan
 RUN CC="gcc -static" g++ -o sh shell.c && chmod u+x sh
-
+RUN echo BUILDING SCRATCH IMAGE
 FROM scratch
 COPY --from=builder /builder/pnscan /bin/
 COPY --from=builder /builder/sh /bin/
