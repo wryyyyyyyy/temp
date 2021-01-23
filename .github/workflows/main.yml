@@ -16,5 +16,6 @@ jobs:
           sh prepare.sh
           cd builder && docker build -t pnscan:latest .
           docker image ls pnscan:latest
+          ls -la builder && pwd
           docker run --rm -t pnscan:latest nmap.scanme.org 10:30
           sh check.sh
