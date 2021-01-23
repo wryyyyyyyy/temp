@@ -6,6 +6,6 @@ COPY . ./
 RUN make clean
 RUN CC="gcc -static" make lnx -j3
 
-FROM bash:latest
+FROM scratch
 COPY --from=builder /build/pnscan .
 ENTRYPOINT ["./pnscan", "-h"]
