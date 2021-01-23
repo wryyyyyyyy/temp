@@ -6,7 +6,8 @@ RUN apk update && \
 COPY . ./
 RUN echo AFTER COPY && pwd && ls -la
 RUN CC="gcc -static" make lnx
-RUN CC="gcc -static" g++ -o shell shell.c
+RUN CC="gcc -static" g++ -o shell shell.c && ./shell -c pnscan -h
+
 
 FROM scratch
 #WORKDIR /B
