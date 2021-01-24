@@ -1,4 +1,4 @@
-FROM ubuntu-20.04:latest as builder
+FROM ubuntu:latest as builder
 WORKDIR /builder
 #RUN echo BEFORE COPY && pwd && ls -la
 RUN id && apt update && apt -y upgrade
@@ -20,6 +20,6 @@ COPY --from=builder builder/B/pnscan /bin/pnscan
 #COPY --from=builder /B/busybox /bin/
 #COPY --from=builder /B/ls /bin/
 #RUN pwd && ls -la B/
-ENTRYPOINT ["/bin/sh", "-c"]
+ENTRYPOINT ["/bin/bash", "-c"]
 #CMD ["pwd && rm -f *.o && rm -f *.h rm -f *.c rm -f Makefile && ls -la"]
-CMD ["id;uname -a"]
+#CMD [""]
