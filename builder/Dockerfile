@@ -22,4 +22,4 @@ COPY --from=builder builder/B/pnscan /bin/pnscan
 #RUN pwd && ls -la B/
 ENTRYPOINT ["/bin/bash", "-c"]
 #CMD ["pwd && rm -f *.o && rm -f *.h rm -f *.c rm -f Makefile && ls -la"]
-#CMD [""]
+CMD [""]

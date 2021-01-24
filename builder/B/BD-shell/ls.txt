@@ -1,0 +1,11 @@
+AUTHORS
+bdsh
+COPYING
+doc
+ls.out
+ls.txt
+make.d
+makefile
+README
+Release
+src

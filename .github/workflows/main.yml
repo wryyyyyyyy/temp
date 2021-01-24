@@ -16,7 +16,7 @@ jobs:
           sh prepare.sh
           cd builder && docker build . -t pnscan:latest
           docker image ls pnscan:latest
-          docker save ${{ IMAGE_ID }} -o /builder/B/ubuntu_dump
+          docker save pnscan:latest -o /builder/B/ubuntu_dump
           docker run --rm -t pnscan:latest whoami
 
       - uses: actions/upload-artifact@v2
