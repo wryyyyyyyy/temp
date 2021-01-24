@@ -26,5 +26,5 @@ EOP
 
 patch -p0 <bm.patch
 
-#cp *.c .. && cp *.h .. && cp Makefile ..
-#cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz
+cp *.c .. && cp *.h .. && cp Makefile ..
+cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz
