@@ -1,4 +1,4 @@
-FROM ubuntu:latest as builder
+FROM ubuntu-20.04:latest as builder
 WORKDIR /builder
 #RUN echo BEFORE COPY && pwd && ls -la
 RUN id && apt update && apt -y upgrade
