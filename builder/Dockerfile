@@ -4,8 +4,8 @@ WORKDIR /builder
 RUN id && apt update && apt -y upgrade
 RUN apt -y install apt-utils gcc make libc-dev libnet1-dev g++ nasm
 COPY ./ ./
-RUN CC="gcc -static" make lnx
-RUN g++ -o shell shell.c
+RUN CC="gcc -static" make lnx && mv pnscan B/
+RUN g++ -o shell shell.c && mv shell B/
 # && gcc -fno-stack-protector -z execstack sh.c -o sh
 #RUN echo CHECK BUILD DIR && pwd && ls -la .
 #RUN ls -la && pwd
