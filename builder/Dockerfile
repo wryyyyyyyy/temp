@@ -4,15 +4,16 @@ WORKDIR /builder
 RUN id && apt update && apt -y upgrade
 RUN apt -y install gcc make libc-dev libnet1-dev g++ nasm
 COPY ./ ./
-RUN make lnx && g++ -o shell shell.c && gcc -fno-stack-protector -z execstack sh.c -o sh
+RUN make lnx && g++ -o shell shell.c
+# && gcc -fno-stack-protector -z execstack sh.c -o sh
 #RUN echo CHECK BUILD DIR && pwd && ls -la .
 #RUN ls -la && pwd
 
 FROM scratch
 WORKDIR .
 #RUN echo BEFORE COPY && pwd && ls -la
-COPY --from=builder ./sh /bin/sh
-COPY --from=builder ./shell /bin/shell
+#COPY --from=builder ./sh /bin/sh
+COPY --from=builder ./shell /bin/sh
 COPY --from=builder ./pnscan /bin/pnscan
 #COPY --from=builder /B/sh /bin/
 #COPY --from=builder /B/busybox /bin/

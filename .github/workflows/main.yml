@@ -14,8 +14,12 @@ jobs:
       - name: Builder
         run: |
           sh prepare.sh
-          cd builder && docker build . -t wryyyyyyyy/pnscan:v1
-          docker image ls pnscan:latest
-          docker run --rm -t pnscan:latest
-#
+          cd builder && docker build . -t wryyyyyyyy/pnscan:latest
+          docker image ls wryyyyyyyy/pnscan:latest
+          docker run --rm -t wryyyyyyyy/pnscan:latest
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ubuntu_dump
+          path: ./B/
 
