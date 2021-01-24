@@ -1,12 +1,2 @@
-*.o
-pnscan-1.11/*
-*.gz
-*.patch
-*.h
-*.c
-Makefile
-pnscan
-sh
-busybox
-ls
+
 
