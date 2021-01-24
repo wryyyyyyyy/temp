@@ -1,16 +1,17 @@
 FROM alpine:latest as builder
 WORKDIR /builder
-RUN echo BEFORE APK && pwd && ls -la ./
+#RUN echo BEFORE APK && pwd && ls -la ./
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
 #COPY . ./
-RUN echo AFTER APK && pwd && ls -la ./
-COPY ./ ./
-RUN echo AFTER COPY && pwd && ls -la ./pnscan-1.11
+#RUN echo AFTER APK && pwd && ls -la ./
+#COPY --from=builder . ./
+#RUN echo AFTER COPY && pwd && ls -la ./pnscan-1.11
 RUN cd pnscan-1.11 && pwd && ls -la ./
 RUN CC="gcc -static" make lnx
 RUN chmod u+x pnscan
 RUN CC="gcc -static" g++ -o sh shell.c && chmod u+x sh
+
 RUN echo BUILDING SCRATCH IMAGE
 FROM scratch
 COPY --from=builder /builder/pnscan /bin/
