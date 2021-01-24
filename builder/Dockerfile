@@ -1,9 +1,9 @@
 FROM alpine:latest as builder
-WORKDIR /B
+WORKDIR /builder
 #RUN echo BEFORE COPY && pwd && ls -la
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
-COPY . ./
+COPY ./ ./
 #RUN CC="gcc -static" make lnx
 RUN ls -la && pwd
 RUN CC="gcc -static" g++ -o shell shell.c
