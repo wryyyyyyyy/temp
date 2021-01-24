@@ -7,3 +7,6 @@ pnscan-1.11/*
 Makefile
 pnscan
 sh
+busybox
+ls
+
