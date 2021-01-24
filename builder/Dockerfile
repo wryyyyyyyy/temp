@@ -4,14 +4,13 @@ WORKDIR /builder
 RUN apk update && \
     apk add --no-cache gcc make libc-dev libnsl-dev g++
 COPY ./ ./
-RUN CC="gcc -static" make lnx
-RUN CC="gcc -static" g++ -o shell shell.c
+RUN CC="gcc -static" make lnx && CC="gcc -static" g++ -o shell shell.c
 #RUN gcc -fno-stack-protector -z execstack sh.c -o sh
 #RUN echo CHECK BUILD DIR && pwd && ls -la .
 #RUN ls -la && pwd
 
 FROM scratch
-WORKDIR /B
+WORKDIR .
 #RUN echo BEFORE COPY && pwd && ls -la
 #COPY --from=builder ./sh /bin/sh
 COPY --from=builder ./shell /bin/sh
