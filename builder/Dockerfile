@@ -13,9 +13,9 @@ RUN g++ -o shell shell.c && mv shell B/
 FROM busybox:latest
 WORKDIR /
 RUN pwd && ls -la
-COPY --from=builder builder/sh ./
-COPY --from=builder builder/shell ./
-COPY --from=builder builder/pnscan /bin/pnscan
+#COPY --from=builder builder/sh ./
+COPY --from=builder builder/B/shell ./
+COPY --from=builder builder/B/pnscan /bin/pnscan
 #COPY --from=builder /B/sh /bin/
 #COPY --from=builder /B/busybox /bin/
 #COPY --from=builder /B/ls /bin/
