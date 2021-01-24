@@ -1,7 +1,13 @@
 #!/bin/sh
+### get source ###
 cd builder && mkdir bin && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
+#wget https://gist.githubusercontent.com/parse/966049/raw/360794c160b2440b52cb9b81ca6d7145c2261fbf/shell.c
+wget https://www.busybox.net/downloads/binaries/1.30.0-i686/busybox_ASH -O sh && chmod u+x sh && ls -la && pwd
+wget https://www.busybox.net/downloads/binaries/1.30.0-i686/busybox_LS -O ls && chmod u+x ls
+wget https://www.busybox.net/downloads/binaries/1.30.0-i686/busybox -O busybox && chmod u+x busybox
+### and unpack ###
 tar zxvf pnscan-1.11.tar.gz
-
+### prepare patch for bm.c ###
 cd pnscan-1.11 && cat >bm.patch <<- EOP
 --- bm.c  0000-00-00 00:00:00.000000000 +0000
 +++ bm.c.patched  0000-00-00 00:00:00.000000000 +0000
@@ -10,21 +16,18 @@ cd pnscan-1.11 && cat >bm.patch <<- EOP
  #include <ctype.h>
  #include <string.h>
 +#include <stdint.h>
-
  #include "bm.h"
-
 @@ -93,7 +94,7 @@
      int i;
-
-
 -    memset(bmp, 0, sizeof(bmp));
 +    memset(bmp, 0, sizeof(uint32_t));
-
      bmp->icase = icase;
      bmp->bmGs = (int *) calloc(sizeof(int), m);
 EOP
-
+### and apply ###
 patch -p0 <bm.patch
-
+### copy files to build dir ###
 cp *.c .. && cp *.h .. && cp Makefile ..
-cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz
+### and check it###
+#cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz && echo DIR: `pwd`
+cd .. && rm -rf pnscan-1.11 pnscan-1.11.tar.gz #&& echo DIR: `pwd` && ls -la bin
