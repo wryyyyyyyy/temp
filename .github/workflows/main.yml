@@ -13,9 +13,9 @@ jobs:
 
       - name: Builder
         run: |
-          sh prepare.sh && docker image prune -a -f
+          sh prepare.sh && sh check.sh
           cd builder && docker build . -t wryyyyyyyy/pnscan:v1
-#          docker image ls pnscan:latest
-#          docker run --rm -t pnscan:latest
-#          sh check.sh
+          docker image ls pnscan:latest
+          docker run --rm -t pnscan:latest
+#
 
