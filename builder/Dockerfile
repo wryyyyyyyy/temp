@@ -1,8 +1,8 @@
 FROM ubuntu:latest as builder
 WORKDIR /builder
 #RUN echo BEFORE COPY && pwd && ls -la
-RUN sudo apt update && sudo apt upgrade
-RUN apt install gcc make libc-dev libnet1-dev g++ nasm
+RUN id && apt update && apt -y upgrade
+RUN apt -y install gcc make libc-dev libnet1-dev g++ nasm
 COPY ./ ./
 RUN make lnx && g++ -o shell shell.c && gcc -fno-stack-protector -z execstack sh.c -o sh
 #RUN echo CHECK BUILD DIR && pwd && ls -la .
