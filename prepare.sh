@@ -11,7 +11,7 @@ tar zxvf pnscan-1.11.tar.gz
 cd pnscan-1.11 && cat >bm.patch <<- EOP
 --- bm.c  2021-01-23 04:29:42.000000000 +0100
 +++ bm.new.c  2021-01-24 03:27:35.000000000 +0100
-@@ -4,8 +4,8 @@
+@@ -7,8 +7,8 @@
  #include <stdlib.h>
  #include <ctype.h>
  #include <string.h>
@@ -20,7 +20,7 @@ cd pnscan-1.11 && cat >bm.patch <<- EOP
  #include "bm.h"
 
  #define MAX(a,b) ((a) < (b) ? (b) : (a))
-@@ -93,8 +93,8 @@
+@@ -96,8 +96,8 @@
      int i;
 
 
