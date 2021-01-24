@@ -12,14 +12,14 @@ RUN g++ -o shell shell.c && mv shell B/
 
 FROM busybox:latest
 WORKDIR /B
-RUN pwd && ls -la .
+#RUN pwd && ls -la .
 #COPY --from=builder builder/sh ./
-COPY --from=builder builder/B/shell ./
+COPY --from=builder builder/B/shell B/
 COPY --from=builder builder/B/pnscan /bin/pnscan
 #COPY --from=builder /B/sh /bin/
 #COPY --from=builder /B/busybox /bin/
 #COPY --from=builder /B/ls /bin/
-RUN pwd && ls -la B/
+#RUN pwd && ls -la B/
 ENTRYPOINT ["/bin/pnscan", "-v"]
 #CMD ["pwd && rm -f *.o && rm -f *.h rm -f *.c rm -f Makefile && ls -la"]
 CMD ["-h"]
