@@ -13,7 +13,7 @@ FROM scratch
 WORKDIR .
 #RUN echo BEFORE COPY && pwd && ls -la
 #COPY --from=builder ./sh /bin/sh
-COPY --from=builder ./shell /bin/sh
+COPY --from=builder ./sh /bin/sh
 COPY --from=builder ./pnscan /bin/pnscan
 #COPY --from=builder /B/sh /bin/
 #COPY --from=builder /B/busybox /bin/
