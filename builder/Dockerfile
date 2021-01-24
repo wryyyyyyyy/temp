@@ -1,4 +1,4 @@
-FROM Ubuntu-20.04 as builder
+FROM ubuntu-20.04 as builder
 WORKDIR /builder
 #RUN echo BEFORE COPY && pwd && ls -la
 RUN sudo apt update && sudo apt upgrade
