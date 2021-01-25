@@ -1,27 +1,10 @@
-name: Main CI
-
 on:
-  push:
-    branches:
-      - main
-        workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: Ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Builder
-        run: sh get.sh
-#          sh prepare.sh
-#          cd builder && docker build . -t pnscan:latest
-#          docker image ls pnscan:latest
-#          docker save pnscan:latest -o /builder/B/ubuntu_dump
-#          docker run --rm -t pnscan:latest whoami
-
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: ubuntu_dump
-#          path: ./B
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Just triggered'
 
