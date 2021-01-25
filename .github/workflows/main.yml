@@ -11,9 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-#      - uses: azure/docker-login@v1
-#        with:
-#          login-server: ghcr.io
-#          username: ${GITHUB_REPOSITORY_OWNER}
-#          password: ${CONTAINER_TOKEN}
-
+      - name: prepare
+        run: |
+          echo prepared
