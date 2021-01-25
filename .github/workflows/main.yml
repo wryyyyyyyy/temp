@@ -13,4 +13,4 @@ jobs:
 
       - name: prepare
         run: |
-          pwd && echo prepared
+          cd builder && pwd && echo prepared
