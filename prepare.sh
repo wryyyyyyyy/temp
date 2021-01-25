@@ -6,4 +6,4 @@ echo NOP
 #wget https://www.busybox.net/downloads/binaries/1.30.0-i686/busybox -O busybox && chmod u+x busybox
 #wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
 #tar zxvf pnscan-1.11.tar.gz
-1:
+

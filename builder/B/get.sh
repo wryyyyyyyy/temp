@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #wget -c "https://www.lua.org/ftp/lua-5.4.2.tar.gz"
 #wget -c "https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz"
 #wget -c "ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz"

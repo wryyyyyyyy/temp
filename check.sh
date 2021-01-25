@@ -1,8 +1,7 @@
 #!/bin/sh
-echo NOP
-#gcc -fno-stack-protector -z execstack sh.c -o sh
-#cat << EOF >builder/sh.c
-#include <stdio.h>
-#unsigned char hex[]="\x31\xc9\xf7\xe9\x51\x04\x0b\xeb\x08\x5e\x87\xe6\x99\x87\xdc\xcd\x80"
-#"\xe8\xf3\xff\xff\xff\x2f\x62\x69\x6e\x2f\x2f\x73\x68";
-#main(){int(*ret)()=(int(*)())hex;ret();}
+echo READY
+cd builder/B
+wget https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz
+tar zxvf LuaJIT-2.1.0-beta3.tar.gz
+cd LuaJIT-2.1.0-beta3 && cp ../conf/makefile -f .
+make -j3
