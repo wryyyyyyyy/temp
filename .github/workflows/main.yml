@@ -26,4 +26,4 @@ jobs:
           set -e
           docker build -f builder/Dockerfile . -t pnscan:v1
           docker image ls pnscan:v1
-          docker run -t pnscan:v1
+          docker run --rm -t pnscan:v1
