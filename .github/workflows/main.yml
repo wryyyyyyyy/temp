@@ -17,7 +17,6 @@ jobs:
           git config --global core.autocrlf input
           cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
           tar zxvf pnscan-1.11.tar.gz && cd pnscan-1.11 && make lnx
-          cp pnscan ../bin && cd ../bin && ./pnscan -h
 
       - name: dockerize
         run: |

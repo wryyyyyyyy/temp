@@ -1,6 +1,6 @@
 FROM scratch
 WORKDIR /
-ADD /bin/pnscan /bin/pnscan
+ADD /pnscan-1.11/pnscan /bin/pnscan
 RUN chmod +x /bin/pnscan
 ENTRYPOINT ["pnscan"]
 CMD ["-h"]
