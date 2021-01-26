@@ -24,6 +24,6 @@ jobs:
       - name: dockerize
         run: |
           set -e
-          cd builder && docker build --no-cache -t pnscan:v1 .
+          cd builder && docker build --no-cache --squash -t pnscan:v1 .
           docker image ls pnscan:v1
           docker run --rm -t pnscan:v1
