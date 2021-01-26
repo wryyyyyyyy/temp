@@ -14,4 +14,6 @@ jobs:
       - name: prepare
         run: |
           cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
-          tar zxvf pnscan-1.11.tar.gz && cd pnscan-1.11 && make lnx
+          tar zxvf pnscan-1.11.tar.gz && cd pnscan-1.11 && make lnx && cd ..
+          docker build -t pnscan:v1 .
+          docker image ls pnscan:v1
