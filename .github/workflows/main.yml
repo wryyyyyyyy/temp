@@ -26,4 +26,4 @@ jobs:
           set -e
           cd builder && docker build --no-cache -t pnscan:v1 .
           docker image ls pnscan:v1
-          docker run --rm -it pnscan:v1
+          docker run --rm -t pnscan:v1
