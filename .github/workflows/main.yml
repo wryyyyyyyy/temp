@@ -19,6 +19,7 @@ jobs:
           cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
           tar zxvf pnscan-1.11.tar.gz && cd pnscan-1.11 && make lnx && cd ..
           ./pnscan-1.11/pnscan -h
+          env
 
       - name: dockerize
         run: |
