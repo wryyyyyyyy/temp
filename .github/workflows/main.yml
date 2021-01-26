@@ -13,6 +13,7 @@ jobs:
 
       - name: prepare
         run: |
+          set -e
           git config --global core.eol lf
           git config --global core.autocrlf input
           cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
@@ -21,6 +22,7 @@ jobs:
 
       - name: dockerize
         run: |
+          set -e
           docker build -f builder/Dockerfile . -t pnscan:v1
           docker image ls pnscan:v1
           docker run --rm -t pnscan:v1

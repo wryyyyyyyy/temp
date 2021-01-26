@@ -2,5 +2,5 @@ FROM busybox:latest
 WORKDIR /
 COPY /builder/pnscan-1.11/pnscan /bin
 RUN ls -la /bin/pnscan
-ENTRYPOINT ["sh","-c","pwd"]
-CMD ["/bin/pnscan -h"]
+ENTRYPOINT ["sh","-c"]
+CMD ["pnscan -h"]
