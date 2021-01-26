@@ -22,5 +22,5 @@ jobs:
         run: |
           cd builder && docker build . -t pnscan:v1 -q
           docker image ls pnscan:v1
-#          docker run --rm -t pnscan:v1
+          docker run -v --rm -t pnscan:v1
 #          docker container ls
