@@ -13,4 +13,4 @@ jobs:
 
       - name: prepare
         run: |
-          apt update
+          sudo apt update
