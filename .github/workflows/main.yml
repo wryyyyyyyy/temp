@@ -20,7 +20,7 @@ jobs:
 
       - name: dockerize
         run: |
-          cd builder && docker build --no-cache -t pnscan:v1 . | tee .buildlog | cut -d ' ' -f 3
-          docker image ls pnscan:v1
-          docker run --rm -t pnscan:v1
-          docker container ls
+          cd builder && docker build . | tail -n1 | cut -d' ' -f3 | xargs -I{} docker run {}
+#          docker image ls pnscan:v1
+#          docker run --rm -t pnscan:v1
+#          docker container ls
