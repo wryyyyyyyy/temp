@@ -13,4 +13,4 @@ jobs:
 
       - name: prepare
         run: |
-          sudo apt install gcc make libc-dev
+          pwd & ls -la
