@@ -26,7 +26,9 @@ jobs:
           cd builder && docker build . -t pnscan:v1
           docker image ls pnscan:v1
           echo DEFAULT CONTAINER RUN
+          echo ### STARTED WITH docker run --rm -t pnscan:v1 ###
           docker run --rm -t pnscan:v1
           echo PARAMETERS CONTAINER RUN
+          echo ### STARTED WITH docker run --rm -t pnscan:v1 45.33.32.156 20:30 ###
           docker run --rm -t pnscan:v1 45.33.32.156 20:30
 #          docker container ls
