@@ -16,7 +16,7 @@ jobs:
           git config --global core.eol lf
           git config --global core.autocrlf input
           cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
-          tar zxvf pnscan-1.11.tar.gz && cd pnscan-1.11 && env LDOPTS="-static -static-libgcc -static-libstdc++" && make lnx && cd ..
+          tar zxvf pnscan-1.11.tar.gz && cd pnscan-1.11 && export LDOPTS="-static -static-libgcc -static-libstdc++" && make lnx && cd ..
           pwd && ls -la pnscan-1.11/
 
 #      - name: dockerize
