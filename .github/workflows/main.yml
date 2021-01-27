@@ -14,8 +14,12 @@ jobs:
       - name: prepare
         run: |
           cd builder && wget ftp://ftp.lysator.liu.se/pub/unix/pnscan/pnscan-1.11.tar.gz
-          tar zxvf pnscan-1.11.tar.gz && cd pnscan-1.11 && export LNX_LDOPTS="-static -static-libgcc -static-libstdc++" && make lnx && cd ..
-          pwd && ls -la pnscan-1.11/
+          tar zxvf pnscan-1.11.tar.gz && cd pnscan-1.11
+          gcc -Wall -g -O -c -o pnscan.o pnscan.c
+          gcc -Wall -g -O -c -o bm.o bm.c
+          gcc -Wall -g -O -c -o version.o version.c
+          gcc -Wall -g -O -Wl,-s -o pnscan pnscan.o bm.o version.o -lpthread -lnsl -static
+          cd .. && pwd && ls -la pnscan-1.11/
 
 #      - name: dockerize
 #        run: |
