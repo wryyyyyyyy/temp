@@ -25,5 +25,8 @@ jobs:
         run: |
           cd builder && docker build . -t pnscan:v1
           docker image ls pnscan:v1
+          echo DEFAULT CONTAINER RUN
           docker run --rm -t pnscan:v1
+          echo PARAMETERS CONTAINER RUN
+          docker run --rm -t pnscan:v1 scanme.nmap.org 20:30
 #          docker container ls
