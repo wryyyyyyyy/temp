@@ -21,9 +21,9 @@ jobs:
           gcc -Wall -g -O -Wl,-s -o pnscan pnscan.o bm.o version.o -lpthread -lnsl -static
           cd .. && pwd && ls -la pnscan-1.11/
 
-#      - name: dockerize
-#        run: |
-#          cd builder && docker build . -t pnscan:v1 -q
-#          docker image ls pnscan:v1
-#          docker run -v --rm -t pnscan:v1
+      - name: dockerize
+        run: |
+          cd builder && docker build . -t pnscan:v1
+          docker image ls pnscan:v1
+          docker run --rm -t pnscan:v1
 #          docker container ls

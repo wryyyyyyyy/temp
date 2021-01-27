@@ -1,5 +1,5 @@
 FROM scratch
 WORKDIR /
-ADD /pnscan-1.11/pnscan /bin/pnscan
-ENTRYPOINT ["pnscan"]
+COPY ./pnscan-1.11/pnscan ./pnscan
+ENTRYPOINT ["./pnscan"]
 CMD ["-h"]
