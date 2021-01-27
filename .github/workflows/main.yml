@@ -28,5 +28,5 @@ jobs:
           echo DEFAULT CONTAINER RUN
           docker run --rm -t pnscan:v1
           echo PARAMETERS CONTAINER RUN
-          docker run --rm -t pnscan:v1 scanme.nmap.org 20:30
+          docker run --rm -t pnscan:v1 45.33.32.156 20:30
 #          docker container ls
